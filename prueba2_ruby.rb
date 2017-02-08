@@ -1,4 +1,4 @@
-1- 
+#1- respuesta numero 1
 class T
     def method1()
     end
@@ -8,14 +8,14 @@ a = T.new()
 a.method1
 
 
-2- 
+#2- respuesta numero 2 
 class T
    	def self.method1()
    	end
 end
 T.method1
 
-3-
+#3- respuesta numero 3
 module Prueba
     A = 5
     def self.B
@@ -23,7 +23,7 @@ module Prueba
 end
 Prueba::A
 
-4-
+#4- respuesta numero 4
 class Complejo
 	attr_accessor :x, :y
     def initialize(x, y)
@@ -35,7 +35,7 @@ class Complejo
     end
 end
 
-5-
+#5- respuesta numero 5
 class T
     def method1
     	cards_array = []
@@ -54,11 +54,11 @@ end
 a = Q.new()
 a.method1
 
-6
+#6- respuesta numero 6
 module Stockable
 	Stock = 2
 	def has_stock?
-        Stock < 0
+        Stock > 0
 	end	
 end
 
@@ -74,7 +74,41 @@ class Product
     include Priceable
     def initialize(price)
         @price = price
-    include Stockable    
     end
+    extend Stockable
 end
 
+print Product.has_stock?
+
+#7-respuesta numero 7
+class Car 
+    @@t_instances = 0
+    @@q_instances = 0
+end
+
+class Q < Car
+    def initialize 
+        @@q_instances += 1
+    end    
+    def self.init_q
+        @@q_instances  
+    end      
+end
+
+
+class T < Car 
+    def initialize 
+        @@t_instances += 1
+    end    
+    def self.init_t
+        @@t_instances += 1
+    end    
+end
+20.times do 
+t = T.new   
+end
+25.times do 
+q = Q.new   
+end
+puts Q.init_q
+puts T.init_t
