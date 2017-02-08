@@ -48,11 +48,11 @@ end
 class Q < T
 	attr_accessor :a
 	def initialize (a)
-	@a << method1
+		@a << method1
+	end
 end
 
-a = Q.new()
-a.method1
+
 
 #6- respuesta numero 6
 module Stockable
